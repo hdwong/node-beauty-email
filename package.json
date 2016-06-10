@@ -1,0 +1,29 @@
+{
+  "name": "node-beauty-email",
+  "version": "1.0.0",
+  "description": "Email module for node-beauty",
+  "private": false,
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hdwong/node-beauty-email.git"
+  },
+  "dependencies": {
+    "nodemailer": "*",
+    "nodemailer-html-to-text": "*"
+  },
+  "keywords": [
+    "node-beauty",
+    "email",
+    "nodemailer"
+  ],
+  "author": "Bun Wong <bunwong@qq.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hdwong/node-beauty-email/issues"
+  },
+  "homepage": "https://github.com/hdwong/node-beauty-email#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
