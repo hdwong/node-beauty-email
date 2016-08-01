@@ -36,11 +36,21 @@ let email = {
     }
     client = m.createTransport(conf);
     client.use('compile', mhtt.htmlToText());
+    if (!config.enable_api) {
+      // disable api
+      delete email.post_send;
+    }
   },
   uninit: () => {
     if (client) {
       client.close();
     }
+  },
+  send: (options, next) => {
+    client.sendMail(options, (error, result) => {
+      email.assert(error);
+      next(result);
+    });
   },
   post_send: (req, res, next) => {
     if (!req.body || req.body.to === undefined ||
@@ -60,10 +70,7 @@ let email = {
     if (req.body.text !== undefined) {
       options.text = req.body.text;
     }
-    client.sendMail(options, (error, result) => {
-      email.assert(error);
-      next(result);
-    });
+    email.send(options, next);
   }
 };
 
